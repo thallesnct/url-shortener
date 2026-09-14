@@ -3,7 +3,7 @@ id: P1-02
 title: Add GET /:code redirect with 404/410 and click recording
 prd: docs/prds/url-shortener.md
 phase: 1
-status: in-progress
+status: done
 blockers: [P0-01]
 parallel: true
 zones: [apps/api/src/redirect/, apps/api/src/clicks/]

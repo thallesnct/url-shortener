@@ -1,8 +1,8 @@
 ---
 title: Route factories take an optional second `options` argument for test seams
-status: proposed
+status: accepted
 date: 2026-09-14
-deciders: implementer(P1-01)
+deciders: implementer(P1-01), user (execute-next-step)
 supersedes:
 ---
 

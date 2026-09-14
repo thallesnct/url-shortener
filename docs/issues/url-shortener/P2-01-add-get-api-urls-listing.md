@@ -3,7 +3,7 @@ id: P2-01
 title: Add GET /api/urls listing with click counts
 prd: docs/prds/url-shortener.md
 phase: 2
-status: in-progress
+status: done
 blockers: [P0-01]
 parallel: true
 zones: [apps/api/src/urls/]

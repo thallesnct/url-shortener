@@ -151,13 +151,13 @@ Breakdown: [docs/issues/url-shortener/README.md](../issues/url-shortener/README.
 ### Phase 0 (1/1 done)
 - [x] [P0-01](../issues/url-shortener/P0-01-walking-skeleton-monorepo-api-postgres-tests.md) Scaffold monorepo, Hono API, Postgres, migrations and test harness
 
-### Phase 1 (0/2 done)
-- [ ] [P1-01](../issues/url-shortener/P1-01-add-post-api-shorten.md) Add POST /api/shorten with URL validation and code generation `todo`
-- [ ] [P1-02](../issues/url-shortener/P1-02-add-redirect-with-click-tracking.md) Add GET /:code redirect with 404/410 and click recording `todo`
+### Phase 1 (2/2 done)
+- [x] [P1-01](../issues/url-shortener/P1-01-add-post-api-shorten.md) Add POST /api/shorten with URL validation and code generation
+- [x] [P1-02](../issues/url-shortener/P1-02-add-redirect-with-click-tracking.md) Add GET /:code redirect with 404/410 and click recording
 
-### Phase 2 (0/2 done)
-- [ ] [P2-01](../issues/url-shortener/P2-01-add-get-api-urls-listing.md) Add GET /api/urls listing with click counts `todo`
-- [ ] [P2-02](../issues/url-shortener/P2-02-add-get-api-stats-code.md) Add GET /api/stats/:code with clicksByDay and topReferrers `todo`
+### Phase 2 (2/2 done)
+- [x] [P2-01](../issues/url-shortener/P2-01-add-get-api-urls-listing.md) Add GET /api/urls listing with click counts
+- [x] [P2-02](../issues/url-shortener/P2-02-add-get-api-stats-code.md) Add GET /api/stats/:code with clicksByDay and topReferrers
 
 ### Phase 3 (0/1 done)
 - [ ] [P3-01](../issues/url-shortener/P3-01-add-demo-script-and-readme.md) Add pnpm demo script and README with stack justification `todo`
