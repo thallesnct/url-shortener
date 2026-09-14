@@ -24,8 +24,7 @@ export function statsRoutes({ pool }: Deps, now: () => Date = () => new Date()) 
         [link.id],
       ),
       pool.query<DayRow>(
-        `SELECT to_char(date_trunc('day', created_at AT TIME ZONE 'UTC'), 'YYYY-MM-DD') AS day,
-                count(*)::int AS clicks
+        `SELECT to_char(created_at AT TIME ZONE 'UTC', 'YYYY-MM-DD') AS day, count(*)::int AS clicks
          FROM clicks
          WHERE link_id = $1 AND created_at >= $2
          GROUP BY 1`,
@@ -36,7 +35,7 @@ export function statsRoutes({ pool }: Deps, now: () => Date = () => new Date()) 
          FROM clicks
          WHERE link_id = $1
          GROUP BY referrer
-         ORDER BY clicks DESC, referrer ASC NULLS LAST
+         ORDER BY clicks DESC, referrer
          LIMIT 10`,
         [link.id],
       ),
