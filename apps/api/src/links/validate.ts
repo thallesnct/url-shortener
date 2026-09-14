@@ -3,9 +3,11 @@ export type ShortenInput = { url: string; expiresAt: Date | null };
 type ParseResult = { ok: true; value: ShortenInput } | { ok: false; error: string };
 
 const MAX_URL_LENGTH = 2048;
-// Date, time and an explicit offset; `new Date` alone also accepts "12/25/2030" and treats
-// offset-less timestamps as server-local time.
-const ISO_DATETIME = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2}(\.\d+)?)?(Z|[+-]\d{2}:\d{2})$/;
+// Date, time and an optional offset; `new Date` alone also accepts "12/25/2030" and treats
+// offset-less timestamps as server-local time, so those are pinned to UTC below.
+const ISO_DATETIME = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2}(\.\d+)?)?(Z|[+-]\d{2}:\d{2})?$/;
+
+const BAD_EXPIRES_AT = '"expiresAt" must be an ISO-8601 datetime';
 
 const fail = (error: string): ParseResult => ({ ok: false, error });
 
@@ -24,10 +26,10 @@ export function parseShortenBody(body: unknown): ParseResult {
   if (expiresAt === undefined || expiresAt === null) {
     return { ok: true, value: { url: href, expiresAt: null } };
   }
-  if (typeof expiresAt !== 'string' || !ISO_DATETIME.test(expiresAt)) {
-    return fail('"expiresAt" must be an ISO-8601 datetime with a timezone offset');
-  }
-  const date = new Date(expiresAt);
+  if (typeof expiresAt !== 'string') return fail(BAD_EXPIRES_AT);
+  const match = ISO_DATETIME.exec(expiresAt);
+  if (!match) return fail(BAD_EXPIRES_AT);
+  const date = new Date(match[3] ? expiresAt : `${expiresAt}Z`);
   if (Number.isNaN(date.getTime())) return fail('"expiresAt" is not a valid datetime');
   if (date.getTime() <= Date.now()) return fail('"expiresAt" must be in the future');
 

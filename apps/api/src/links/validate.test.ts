@@ -42,6 +42,12 @@ describe('parseShortenBody', () => {
     });
   });
 
+  it('interprets an offset-less ISO datetime as UTC', () => {
+    expect(
+      parseShortenBody({ url: 'https://example.com', expiresAt: '2030-06-01T12:00:00' }),
+    ).toMatchObject({ ok: true, value: { expiresAt: new Date('2030-06-01T12:00:00Z') } });
+  });
+
   it('accepts ISO datetimes with a numeric offset or without seconds', () => {
     for (const expiresAt of ['2030-06-01T12:00:00+02:00', '2030-06-01T12:00Z']) {
       expect(parseShortenBody({ url: 'https://example.com', expiresAt })).toMatchObject({
@@ -56,7 +62,6 @@ describe('parseShortenBody', () => {
     ['a non-date string', 'tomorrow'],
     ['a non-ISO date', '12/25/2030'],
     ['a date without a time', '2030-06-01'],
-    ['a datetime without an offset', '2030-06-01T12:00:00'],
     ['a non-string', 12345],
   ])('rejects expiresAt that is %s', (_label, expiresAt) => {
     expect(parseShortenBody({ url: 'https://example.com', expiresAt })).toEqual({
