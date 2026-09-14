@@ -3,7 +3,7 @@ id: P3-01
 title: Add pnpm demo script and README with stack justification
 prd: docs/prds/url-shortener.md
 phase: 3
-status: in-progress
+status: done
 blockers: [P1-01, P1-02, P2-01, P2-02]
 parallel: false
 zones: [scripts/demo.sh, README.md, package.json]

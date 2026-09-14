@@ -159,8 +159,8 @@ Breakdown: [docs/issues/url-shortener/README.md](../issues/url-shortener/README.
 - [x] [P2-01](../issues/url-shortener/P2-01-add-get-api-urls-listing.md) Add GET /api/urls listing with click counts
 - [x] [P2-02](../issues/url-shortener/P2-02-add-get-api-stats-code.md) Add GET /api/stats/:code with clicksByDay and topReferrers
 
-### Phase 3 (0/1 done)
-- [ ] [P3-01](../issues/url-shortener/P3-01-add-demo-script-and-readme.md) Add pnpm demo script and README with stack justification `todo`
+### Phase 3 (1/1 done)
+- [x] [P3-01](../issues/url-shortener/P3-01-add-demo-script-and-readme.md) Add pnpm demo script and README with stack justification
 
 ### Phase 4 (0/2 done)
 - [ ] [P4-01](../issues/url-shortener/P4-01-scaffold-web-app-proxy-and-static-serving.md) Scaffold apps/web with Vite proxy and serve built SPA at /analytics `todo`
