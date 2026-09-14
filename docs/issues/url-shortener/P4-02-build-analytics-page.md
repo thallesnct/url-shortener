@@ -3,13 +3,13 @@ id: P4-02
 title: Build the analytics page with chart, referrers and copy link
 prd: docs/prds/url-shortener.md
 phase: 4
-status: todo
+status: done
 blockers: [P4-01, P2-02]
 parallel: true
 zones: [apps/web/src/]
 touches-shared: false
-branch:
-worktree:
+branch: feat/build-analytics-page
+worktree: /Users/thallesncarvalho/dev/blueprint-ai/.worktrees/feat/build-analytics-page
 pr:
 gh:
 ---

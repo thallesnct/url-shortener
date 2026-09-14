@@ -148,21 +148,21 @@ Breakdown: [docs/issues/url-shortener/README.md](../issues/url-shortener/README.
 - **Phase 4 — Analytics page** (should-ship): `apps/web` SPA served at `/analytics/:code` (R13–R15).
 
 <!-- issues:start -->
-### Phase 0 (0/1 done)
-- [ ] [P0-01](../issues/url-shortener/P0-01-walking-skeleton-monorepo-api-postgres-tests.md) Scaffold monorepo, Hono API, Postgres, migrations and test harness `todo`
+### Phase 0 (1/1 done)
+- [x] [P0-01](../issues/url-shortener/P0-01-walking-skeleton-monorepo-api-postgres-tests.md) Scaffold monorepo, Hono API, Postgres, migrations and test harness
 
-### Phase 1 (0/2 done)
-- [ ] [P1-01](../issues/url-shortener/P1-01-add-post-api-shorten.md) Add POST /api/shorten with URL validation and code generation `todo`
-- [ ] [P1-02](../issues/url-shortener/P1-02-add-redirect-with-click-tracking.md) Add GET /:code redirect with 404/410 and click recording `todo`
+### Phase 1 (2/2 done)
+- [x] [P1-01](../issues/url-shortener/P1-01-add-post-api-shorten.md) Add POST /api/shorten with URL validation and code generation
+- [x] [P1-02](../issues/url-shortener/P1-02-add-redirect-with-click-tracking.md) Add GET /:code redirect with 404/410 and click recording
 
-### Phase 2 (0/2 done)
-- [ ] [P2-01](../issues/url-shortener/P2-01-add-get-api-urls-listing.md) Add GET /api/urls listing with click counts `todo`
-- [ ] [P2-02](../issues/url-shortener/P2-02-add-get-api-stats-code.md) Add GET /api/stats/:code with clicksByDay and topReferrers `todo`
+### Phase 2 (2/2 done)
+- [x] [P2-01](../issues/url-shortener/P2-01-add-get-api-urls-listing.md) Add GET /api/urls listing with click counts
+- [x] [P2-02](../issues/url-shortener/P2-02-add-get-api-stats-code.md) Add GET /api/stats/:code with clicksByDay and topReferrers
 
-### Phase 3 (0/1 done)
-- [ ] [P3-01](../issues/url-shortener/P3-01-add-demo-script-and-readme.md) Add pnpm demo script and README with stack justification `todo`
+### Phase 3 (1/1 done)
+- [x] [P3-01](../issues/url-shortener/P3-01-add-demo-script-and-readme.md) Add pnpm demo script and README with stack justification
 
-### Phase 4 (0/2 done)
-- [ ] [P4-01](../issues/url-shortener/P4-01-scaffold-web-app-proxy-and-static-serving.md) Scaffold apps/web with Vite proxy and serve built SPA at /analytics `todo`
-- [ ] [P4-02](../issues/url-shortener/P4-02-build-analytics-page.md) Build the analytics page with chart, referrers and copy link `todo`
+### Phase 4 (2/2 done)
+- [x] [P4-01](../issues/url-shortener/P4-01-scaffold-web-app-proxy-and-static-serving.md) Scaffold apps/web with Vite proxy and serve built SPA at /analytics
+- [x] [P4-02](../issues/url-shortener/P4-02-build-analytics-page.md) Build the analytics page with chart, referrers and copy link
 <!-- issues:end -->

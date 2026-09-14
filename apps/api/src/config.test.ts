@@ -7,13 +7,24 @@ describe('loadConfig', () => {
       port: 3000,
       baseUrl: 'http://localhost:3000',
       databaseUrl: 'postgres://shortener:shortener@localhost:5432/shortener',
+      webDist: '../web/dist',
     });
   });
 
   it('reads PORT, BASE_URL and DATABASE_URL from env', () => {
     expect(
-      loadConfig({ PORT: '8080', BASE_URL: 'https://sho.rt', DATABASE_URL: 'postgres://x/y' }),
-    ).toEqual({ port: 8080, baseUrl: 'https://sho.rt', databaseUrl: 'postgres://x/y' });
+      loadConfig({
+        PORT: '8080',
+        BASE_URL: 'https://sho.rt',
+        DATABASE_URL: 'postgres://x/y',
+        WEB_DIST: '/srv/web',
+      }),
+    ).toEqual({
+      port: 8080,
+      baseUrl: 'https://sho.rt',
+      databaseUrl: 'postgres://x/y',
+      webDist: '/srv/web',
+    });
   });
 
   it('derives the default BASE_URL from PORT', () => {

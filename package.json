@@ -7,12 +7,15 @@
     "node": ">=24"
   },
   "scripts": {
-    "dev": "docker compose up -d --wait && pnpm --filter api dev",
+    "dev": "docker compose up -d --wait && concurrently --names api,web \"pnpm --filter api dev\" \"pnpm --filter web dev\"",
+    "build": "pnpm --filter web build",
     "test": "pnpm -r test",
+    "demo": "bash scripts/demo.sh",
     "lint": "biome check .",
     "typecheck": "pnpm -r typecheck"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.5.13"
+    "@biomejs/biome": "2.5.13",
+    "concurrently": "10.0.5"
   }
 }

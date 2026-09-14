@@ -3,13 +3,13 @@ id: P2-02
 title: Add GET /api/stats/:code with clicksByDay and topReferrers
 prd: docs/prds/url-shortener.md
 phase: 2
-status: todo
+status: done
 blockers: [P0-01]
 parallel: true
 zones: [apps/api/src/stats/]
 touches-shared: false
-branch:
-worktree:
+branch: feat/stats-endpoint
+worktree: .worktrees/feat/stats-endpoint
 pr:
 gh:
 ---
