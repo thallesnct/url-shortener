@@ -1,7 +1,12 @@
+import { serveStatic } from '@hono/node-server/serve-static';
 import { Hono } from 'hono';
 import type { Deps } from '../deps.ts';
 
-// Stub: web routes are added by a later issue. Unmatched requests fall through to the 404.
-export function webRoutes(_deps: Deps) {
-  return new Hono();
+export function webRoutes({ config }: Deps) {
+  const app = new Hono();
+
+  app.get('/analytics/*', serveStatic({ root: config.webDist, path: 'index.html' }));
+  app.use('/*', serveStatic({ root: config.webDist }));
+
+  return app;
 }
