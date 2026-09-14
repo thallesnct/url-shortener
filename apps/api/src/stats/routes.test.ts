@@ -25,7 +25,8 @@ const stats = (res: Response) => res.json() as Promise<StatsBody>;
 
 describe('GET /api/stats/:code', () => {
   it('AC1: returns 404 { error } for an unknown code', async () => {
-    const res = await app.request('/api/stats/nope');
+    // Bare sub-app: no global notFound, so the handler itself must answer.
+    const res = await frozenApp.request('/api/stats/nope');
     expect(res.status).toBe(404);
     expect(await res.json()).toEqual({ error: expect.any(String) });
   });
