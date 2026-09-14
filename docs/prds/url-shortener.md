@@ -148,8 +148,8 @@ Breakdown: [docs/issues/url-shortener/README.md](../issues/url-shortener/README.
 - **Phase 4 — Analytics page** (should-ship): `apps/web` SPA served at `/analytics/:code` (R13–R15).
 
 <!-- issues:start -->
-### Phase 0 (0/1 done)
-- [ ] [P0-01](../issues/url-shortener/P0-01-walking-skeleton-monorepo-api-postgres-tests.md) Scaffold monorepo, Hono API, Postgres, migrations and test harness `todo`
+### Phase 0 (1/1 done)
+- [x] [P0-01](../issues/url-shortener/P0-01-walking-skeleton-monorepo-api-postgres-tests.md) Scaffold monorepo, Hono API, Postgres, migrations and test harness
 
 ### Phase 1 (0/2 done)
 - [ ] [P1-01](../issues/url-shortener/P1-01-add-post-api-shorten.md) Add POST /api/shorten with URL validation and code generation `todo`

@@ -1,8 +1,8 @@
 ---
 title: Route modules are `<module>Routes(deps)` factories; tests get a pool and auto-truncation from `apps/api/test/`
-status: proposed
+status: accepted
 date: 2026-09-14
-deciders: implementer(P0-01)
+deciders: implementer(P0-01), user (execute-next-step)
 supersedes:
 ---
 

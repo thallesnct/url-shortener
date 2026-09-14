@@ -1,8 +1,8 @@
 ---
 title: TypeScript sources import each other with explicit `.ts` specifiers
-status: proposed
+status: accepted
 date: 2026-09-14
-deciders: implementer(P0-01)
+deciders: implementer(P0-01), user (execute-next-step)
 supersedes:
 ---
 
