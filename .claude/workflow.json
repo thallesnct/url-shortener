@@ -19,7 +19,7 @@
     "maxParallel": 4,
     "maxImplementerIterations": 5,
     "maxIntegrationRetries": 2,
-    "integrationBranch": "main",
+    "integrationBranch": "develop",
     "worktreeDir": ".worktrees",
     "delivery": "integrate",
     "mergeStrategy": "ff-only",
@@ -32,7 +32,7 @@
   },
   "changesets": { "mode": "auto" },
   "commit": {
-    "protectedBranches": ["main", "master"],
+    "protectedBranches": ["main", "master", "develop"],
     "scopes": []
   }
 }
