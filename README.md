@@ -1,7 +1,8 @@
 # URL shortener with click analytics
 
 Create short links, redirect on access, record every click, and query per-link stats.
-Node 24 + TypeScript + Hono API over Postgres, in a pnpm monorepo (`apps/api`; `apps/web` in Phase 4).
+Node 24 + TypeScript + Hono API over Postgres, with a React + Vite analytics client in a pnpm
+monorepo (`apps/api` and `apps/web`).
 
 ## Prerequisites
 
@@ -15,18 +16,50 @@ Node 24 + TypeScript + Hono API over Postgres, in a pnpm monorepo (`apps/api`; `
 pnpm install
 ```
 
-## Run
+## Run the full app
 
 ```sh
-pnpm dev   # docker compose up -d --wait (Postgres 16 on :5432) → migrations → API on http://localhost:3000
+pnpm dev
 ```
 
+This starts Postgres, runs the migrations, and launches the API and Vite client together:
+
+- Client: `http://localhost:5173`
 - API: `http://localhost:3000` — `curl http://localhost:3000/api/health` → `{"status":"ok","db":"ok"}`
-- Analytics page: `http://localhost:3000/analytics/<code>` (Phase 4, not served yet)
+- Analytics page during development: `http://localhost:5173/analytics/<code>`
+
+The Vite server proxies `/api/*` and seven-character short links to the API on port 3000.
+
+## Run the client separately
+
+With the API already running on port 3000:
+
+```sh
+pnpm --filter web dev
+```
+
+To run each part in its own terminal instead of using `pnpm dev`:
+
+```sh
+docker compose up -d --wait
+pnpm --filter api dev
+pnpm --filter web dev
+```
+
+To build the client and serve it from the API origin:
+
+```sh
+docker compose up -d --wait
+pnpm build
+pnpm --filter api dev
+```
+
+The built analytics page is then available at `http://localhost:3000/analytics/<code>`.
 
 Configuration is read from the environment with defaults that match `docker-compose.yml`, so a
 clean clone needs no `.env`: `PORT=3000`, `BASE_URL=http://localhost:3000`,
-`DATABASE_URL=postgres://shortener:shortener@localhost:5432/shortener`. Ctrl-C stops the API; `docker compose down` stops Postgres.
+`DATABASE_URL=postgres://shortener:shortener@localhost:5432/shortener`. Ctrl-C stops the API and
+client processes; `docker compose down` stops Postgres.
 
 ## Test
 
@@ -104,8 +137,8 @@ Decisions were taken up front and recorded in [`docs/adr/`](docs/adr/); this is 
   `apps/api/src/<module>/routes.ts` sub-apps mounted in a fixed order (`/api/*` before the `/:code`
   catch-all), the pool injected rather than imported, tests co-located.
 - **pnpm monorepo, React + Vite SPA served by the API** ([ADR](docs/adr/2026-09-14-frontend-react-vite-monorepo.md)),
-  **Biome + Recharts** ([ADR](docs/adr/2026-09-14-lint-and-chart-tooling.md)): Phase 4 — the
-  analytics page is built to `apps/web/dist` and served on the API origin so its URL is shareable.
+  **Biome + Recharts** ([ADR](docs/adr/2026-09-14-lint-and-chart-tooling.md)): the analytics page
+  is built to `apps/web/dist` and served on the API origin so its URL is shareable.
 
 ## Trade-offs
 
