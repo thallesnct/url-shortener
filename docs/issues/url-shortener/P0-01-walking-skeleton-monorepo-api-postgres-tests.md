@@ -3,13 +3,13 @@ id: P0-01
 title: Scaffold monorepo, Hono API, Postgres, migrations and test harness
 prd: docs/prds/url-shortener.md
 phase: 0
-status: todo
+status: in-progress
 blockers: []
 parallel: false
 zones: [package.json, pnpm-workspace.yaml, docker-compose.yml, biome.json, tsconfig.json, .gitignore, apps/api/]
 touches-shared: true
-branch:
-worktree:
+branch: feat/walking-skeleton
+worktree: .worktrees/feat/walking-skeleton
 pr:
 gh:
 ---
