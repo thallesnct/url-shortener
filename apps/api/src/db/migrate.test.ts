@@ -3,9 +3,9 @@ import { pool } from '../../test/db.ts';
 import { migrate } from './migrate.ts';
 
 describe('migrate', () => {
-  it('is idempotent: applying twice records exactly one row per migration file', async () => {
+  it('is idempotent: applying again, even concurrently, records one row per file', async () => {
     await migrate(pool);
-    await migrate(pool);
+    await Promise.all([migrate(pool), migrate(pool)]);
 
     const { rows } = await pool.query<{ name: string; n: string }>(
       'SELECT name, count(*)::text AS n FROM schema_migrations GROUP BY name ORDER BY name',

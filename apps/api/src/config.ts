@@ -12,7 +12,7 @@ export function loadConfig(env: NodeJS.ProcessEnv = process.env): Config {
   }
   return {
     port,
-    baseUrl: env.BASE_URL ?? 'http://localhost:3000',
+    baseUrl: env.BASE_URL ?? `http://localhost:${port}`,
     databaseUrl: env.DATABASE_URL ?? 'postgres://shortener:shortener@localhost:5432/shortener',
   };
 }

@@ -16,6 +16,10 @@ describe('loadConfig', () => {
     ).toEqual({ port: 8080, baseUrl: 'https://sho.rt', databaseUrl: 'postgres://x/y' });
   });
 
+  it('derives the default BASE_URL from PORT', () => {
+    expect(loadConfig({ PORT: '8080' }).baseUrl).toBe('http://localhost:8080');
+  });
+
   it('rejects a non-numeric PORT', () => {
     expect(() => loadConfig({ PORT: 'abc' })).toThrow(/PORT/);
   });
