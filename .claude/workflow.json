@@ -1,0 +1,38 @@
+{
+  "issues": {
+    "backend": "local",
+    "dir": "docs/issues",
+    "github": {
+      "repo": "",
+      "labelPhase": "phase:{phase}",
+      "labelStatus": "status:{status}"
+    }
+  },
+  "prds": { "dir": "docs/prds" },
+  "adrs": { "dir": "docs/adr", "proposalsDir": "docs/adr/proposals" },
+  "spikes": { "dir": "docs/spikes" },
+  "prd": {
+    "maxRounds": 5,
+    "maxQuestionsPerRound": 7
+  },
+  "execution": {
+    "maxParallel": 4,
+    "maxImplementerIterations": 5,
+    "maxIntegrationRetries": 2,
+    "integrationBranch": "main",
+    "worktreeDir": ".worktrees",
+    "delivery": "integrate",
+    "mergeStrategy": "ff-only",
+    "sharedManifests": [
+      "package.json", "package-lock.json", "pnpm-lock.yaml", "yarn.lock", "bun.lockb",
+      "tsconfig*.json", "Cargo.toml", "Cargo.lock", "go.mod", "go.sum",
+      "pyproject.toml", "poetry.lock", "uv.lock", "requirements*.txt",
+      ".github/workflows/**", "**/migrations/**", "docker-compose*.yml", "Dockerfile"
+    ]
+  },
+  "changesets": { "mode": "auto" },
+  "commit": {
+    "protectedBranches": ["main", "master"],
+    "scopes": []
+  }
+}
