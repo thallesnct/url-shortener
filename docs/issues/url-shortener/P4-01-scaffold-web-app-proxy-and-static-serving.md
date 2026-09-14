@@ -3,13 +3,13 @@ id: P4-01
 title: Scaffold apps/web with Vite proxy and serve built SPA at /analytics
 prd: docs/prds/url-shortener.md
 phase: 4
-status: todo
+status: in-progress
 blockers: [P0-01]
 parallel: false
 zones: [apps/web/, apps/api/src/web/, package.json, pnpm-workspace.yaml, pnpm-lock.yaml, biome.json]
 touches-shared: true
-branch:
-worktree:
+branch: feat/scaffold-web-app-proxy-and-static-serving
+worktree: /Users/thallesncarvalho/dev/blueprint-ai/.worktrees/feat/scaffold-web-app-proxy-and-static-serving
 pr:
 gh:
 ---
