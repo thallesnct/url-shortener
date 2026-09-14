@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "docker compose up -d --wait && pnpm --filter api dev",
     "test": "pnpm -r test",
+    "demo": "bash scripts/demo.sh",
     "lint": "biome check .",
     "typecheck": "pnpm -r typecheck"
   },
