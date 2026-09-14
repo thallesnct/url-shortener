@@ -3,7 +3,7 @@ id: P4-02
 title: Build the analytics page with chart, referrers and copy link
 prd: docs/prds/url-shortener.md
 phase: 4
-status: in-progress
+status: done
 blockers: [P4-01, P2-02]
 parallel: true
 zones: [apps/web/src/]
