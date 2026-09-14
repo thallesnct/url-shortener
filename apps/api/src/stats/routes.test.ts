@@ -10,7 +10,7 @@ const app = createApp(deps);
 
 // Sub-app with a fixed clock so the 30-day window is deterministic.
 const today = new Date('2026-09-14T12:00:00Z');
-const frozenApp = statsRoutes(deps, () => today);
+const frozenApp = statsRoutes(deps, { now: () => today });
 
 const daysAgo = (n: number) => new Date(today.getTime() - n * 86_400_000);
 

@@ -6,7 +6,7 @@ type LinkRow = { id: number; code: string; originalUrl: string };
 type ReferrerRow = { referrer: string | null; clicks: number };
 
 // `now` is injectable so the 30-day window is deterministic in tests; app.ts uses the default.
-export function statsRoutes({ pool }: Deps, now: () => Date = () => new Date()) {
+export function statsRoutes({ pool }: Deps, { now = () => new Date() }: { now?: () => Date } = {}) {
   return new Hono().get('/api/stats/:code', async (c) => {
     const { rows: links } = await pool.query<LinkRow>(
       'SELECT id, code, original_url AS "originalUrl" FROM links WHERE code = $1',
