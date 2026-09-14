@@ -1,0 +1,24 @@
+{
+  "name": "api",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@hono/node-server": "2.1.1",
+    "hono": "4.13.7",
+    "pg": "8.23.0"
+  },
+  "devDependencies": {
+    "@testcontainers/postgresql": "12.1.0",
+    "@types/node": "24.13.4",
+    "@types/pg": "8.23.1",
+    "testcontainers": "12.1.0",
+    "tsx": "4.23.13",
+    "typescript": "5.9.3",
+    "vitest": "4.1.11"
+  }
+}
