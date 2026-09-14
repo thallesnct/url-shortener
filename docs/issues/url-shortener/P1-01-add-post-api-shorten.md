@@ -3,13 +3,13 @@ id: P1-01
 title: Add POST /api/shorten with URL validation and code generation
 prd: docs/prds/url-shortener.md
 phase: 1
-status: todo
+status: in-progress
 blockers: [P0-01]
 parallel: true
 zones: [apps/api/src/links/]
 touches-shared: false
-branch:
-worktree:
+branch: feat/shorten-endpoint
+worktree: .worktrees/feat/shorten-endpoint
 pr:
 gh:
 ---
